@@ -16,6 +16,12 @@ from tests.test_llm_gateway import (
     test_circuit_breaker_tripping_and_recovery,
     test_rate_limiter_exceeded
 )
+from tests.test_storage_and_graph import (
+    test_hybrid_search_and_rbac_filtering,
+    test_duckdb_text_to_sql_exact_math,
+    test_bitemporal_graph_amendment_resolution,
+    test_corporate_hierarchy_traversal
+)
 
 
 def main():
@@ -27,7 +33,7 @@ def main():
             pass
 
     print("=" * 70)
-    print("[*] RUNNING OMNISYNAPSE-TITAN PHASE 1 & 2 VERIFICATION SUITE")
+    print("[*] RUNNING OMNISYNAPSE-TITAN PHASE 1, 2 & 3 VERIFICATION SUITE")
     print("=" * 70)
 
     tests = [
@@ -42,6 +48,11 @@ def main():
         ("Phase 2: Zero-Downtime Automatic Fallback to Open-Source (Llama-3.3)", test_gateway_automatic_fallback_on_429),
         ("Phase 2: Circuit Breaker State Transitions (CLOSED -> OPEN -> HALF_OPEN)", test_circuit_breaker_tripping_and_recovery),
         ("Phase 2: Token-Bucket Rate Limiter Quota Enforcement", test_rate_limiter_exceeded),
+        # Phase 3
+        ("Phase 3: Hybrid Search Document-Level RBAC Security Filtering", test_hybrid_search_and_rbac_filtering),
+        ("Phase 3: In-Memory DuckDB Text-to-SQL for 100% Exact Math", test_duckdb_text_to_sql_exact_math),
+        ("Phase 3: Bi-Temporal GraphRAG Amendment Resolution ([SUPERSEDES])", test_bitemporal_graph_amendment_resolution),
+        ("Phase 3: Multi-Hop Corporate Hierarchy & Subsidiary Traversal", test_corporate_hierarchy_traversal),
     ]
 
     passed = 0
