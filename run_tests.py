@@ -22,6 +22,12 @@ from tests.test_storage_and_graph import (
     test_bitemporal_graph_amendment_resolution,
     test_corporate_hierarchy_traversal
 )
+from tests.test_agents_and_scraper import (
+    test_autonomous_web_scraper_intelligence,
+    test_stale_data_autonomous_refresh_loop,
+    test_orchestrator_360_risk_triangulation,
+    test_human_in_the_loop_gate
+)
 
 
 def main():
@@ -33,7 +39,7 @@ def main():
             pass
 
     print("=" * 70)
-    print("[*] RUNNING OMNISYNAPSE-TITAN PHASE 1, 2 & 3 VERIFICATION SUITE")
+    print("[*] RUNNING OMNISYNAPSE-TITAN PHASE 1, 2, 3 & 4 VERIFICATION SUITE")
     print("=" * 70)
 
     tests = [
@@ -53,6 +59,11 @@ def main():
         ("Phase 3: In-Memory DuckDB Text-to-SQL for 100% Exact Math", test_duckdb_text_to_sql_exact_math),
         ("Phase 3: Bi-Temporal GraphRAG Amendment Resolution ([SUPERSEDES])", test_bitemporal_graph_amendment_resolution),
         ("Phase 3: Multi-Hop Corporate Hierarchy & Subsidiary Traversal", test_corporate_hierarchy_traversal),
+        # Phase 4
+        ("Phase 4: Autonomous Web Scraper Live CVE Breach Extraction", test_autonomous_web_scraper_intelligence),
+        ("Phase 4: Stale-Data Autonomous Self-Refresh Loop with DB Write-Back", test_stale_data_autonomous_refresh_loop),
+        ("Phase 4: Multi-Agent 360-Degree Triangulation (Docs + ERP + Web)", test_orchestrator_360_risk_triangulation),
+        ("Phase 4: Human-in-the-Loop (HITL) Gate for Sensitive Operations", test_human_in_the_loop_gate),
     ]
 
     passed = 0
