@@ -102,9 +102,23 @@ RESULT: 4 PASSED, 0 FAILED
 
 ---
 
-## 🐳 Docker & Container Deployment
+## ☁️ Live Azure Container Apps Cloud Deployment
 
-Run the complete platform locally or on **Azure Container Apps** with a single command:
+The platform is deployed and running live on **Microsoft Azure**:
+
+* **Live Cloud Service**: [https://omnisynapse-titan-api.yellowwater-c3bd8780.eastus.azurecontainerapps.io](https://omnisynapse-titan-api.yellowwater-c3bd8780.eastus.azurecontainerapps.io)
+* **Resource Group**: `rg-explore-ai`
+* **Container App Environment**: `cae-explore-ai` (East US)
+* **Autoscaling Configuration**:
+  * **Min Replicas**: `1` (Always warm, zero cold start)
+  * **Max Replicas**: `10` (Scales dynamically based on concurrent HTTP requests)
+  * **vCPU / Memory**: `0.5 vCPU`, `1.0 GiB RAM` per instance
+
+---
+
+## 🐳 Local Docker Deployment
+
+Run the complete platform locally with a single command:
 
 ```bash
 docker compose up --build
