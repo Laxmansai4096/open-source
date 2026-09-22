@@ -7,6 +7,14 @@ from src.api.main import app
 client = TestClient(app)
 
 
+def test_api_serve_ui():
+    """Verifies that the root path / serves the professional enterprise command center UI."""
+    response = client.get("/")
+    assert response.status_code == 200
+    assert "OMNISYNAPSE-TITAN" in response.text
+    assert "text/html" in response.headers["content-type"]
+
+
 def test_api_health_probe():
     """Verifies that the /health liveness probe returns HTTP 200 HEALTHY."""
     response = client.get("/health")

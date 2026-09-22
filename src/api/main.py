@@ -10,6 +10,8 @@ Provides production REST endpoints for:
 """
 
 from fastapi import FastAPI, HTTPException, Depends, Header
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from typing import Dict, Any, Optional, List
 import os
@@ -29,6 +31,20 @@ app = FastAPI(
     description="Autonomous Neuro-Symbolic Intelligence Platform for AI Forward Deployed Engineers",
     version="1.0.0"
 )
+
+# Mount static web assets & serve UI
+static_dir = os.path.join(os.path.dirname(__file__), "..", "static")
+if os.path.exists(static_dir):
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+
+@app.get("/", include_in_schema=False)
+def serve_ui():
+    """Serves the professional enterprise command center dashboard."""
+    index_path = os.path.join(static_dir, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    return {"message": "OmniSynapse-Titan Enterprise API is active"}
 
 # Shared singletons
 orchestrator = AgentOrchestrator()
