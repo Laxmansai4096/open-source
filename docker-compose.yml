@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  omnisynapse-titan-core:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: omnisynapse-titan-platform
+    environment:
+      - RUN_MODE=local
+      - RATE_LIMIT_RPM=100
+    ports:
+      - "8000:8000"
+    restart: unless-stopped

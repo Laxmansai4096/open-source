@@ -92,10 +92,20 @@ RESULT: 4 PASSED, 0 FAILED
 
 ---
 
-## 🗺️ Roadmap
+## 🗺️ Completed Enterprise Roadmap
 
 - [x] **Phase 1: Multi-Source Ingestion & Enterprise Foundation** (FastCDC Merkle DAG, Doc Parser, ERP Connector)
 - [x] **Phase 2: Resilient LLM Gateway** (Active/active load balancing, 50ms fallback to Open-Source vLLM / Ollama Llama-3.3, Rate Limiting, Semantic Cache)
 - [x] **Phase 3: Dual-Track Storage (Azure AI Search RBAC + DuckDB Text-to-SQL) & Bi-Temporal GraphRAG**
 - [x] **Phase 4: LangGraph Multi-Agent Orchestrator & Autonomous Live Web Scraper (Playwright)**
-- [ ] **Phase 5: Content Safety Guardrails, App Insights Telemetry & Automated RAGAS CI/CD Evals**
+- [x] **Phase 5: Content Safety Guardrails, App Insights Telemetry & Automated RAGAS CI/CD Evals**
+
+---
+
+## 🐳 Docker & Container Deployment
+
+Run the complete platform locally or on **Azure Container Apps** with a single command:
+
+```bash
+docker compose up --build
+```

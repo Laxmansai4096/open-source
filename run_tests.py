@@ -28,6 +28,12 @@ from tests.test_agents_and_scraper import (
     test_orchestrator_360_risk_triangulation,
     test_human_in_the_loop_gate
 )
+from tests.test_guardrails_telemetry_evals import (
+    test_security_shield_prompt_injection_detection,
+    test_security_shield_pii_redaction,
+    test_telemetry_cost_and_token_accounting,
+    test_ragas_evaluation_quality_gate
+)
 
 
 def main():
@@ -39,7 +45,7 @@ def main():
             pass
 
     print("=" * 70)
-    print("[*] RUNNING OMNISYNAPSE-TITAN PHASE 1, 2, 3 & 4 VERIFICATION SUITE")
+    print("[*] RUNNING OMNISYNAPSE-TITAN COMPLETE 5-PHASE ENTERPRISE VERIFICATION")
     print("=" * 70)
 
     tests = [
@@ -64,6 +70,11 @@ def main():
         ("Phase 4: Stale-Data Autonomous Self-Refresh Loop with DB Write-Back", test_stale_data_autonomous_refresh_loop),
         ("Phase 4: Multi-Agent 360-Degree Triangulation (Docs + ERP + Web)", test_orchestrator_360_risk_triangulation),
         ("Phase 4: Human-in-the-Loop (HITL) Gate for Sensitive Operations", test_human_in_the_loop_gate),
+        # Phase 5
+        ("Phase 5: Security Shield Prompt Injection Defense & Jailbreak Neutralization", test_security_shield_prompt_injection_detection),
+        ("Phase 5: Automated PII Scrubbing & Redaction (SSN / Credit Cards)", test_security_shield_pii_redaction),
+        ("Phase 5: Enterprise Telemetry, TTFT Latency & USD Cost Accounting", test_telemetry_cost_and_token_accounting),
+        ("Phase 5: Automated RAGAS CI/CD Quality Gate (Faithfulness >= 0.85)", test_ragas_evaluation_quality_gate),
     ]
 
     passed = 0
